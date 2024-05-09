@@ -12,7 +12,7 @@
         <div class="bg-background aspect-square h-[14px]"></div>
         <div class="bg-background aspect-square h-[14px]"></div>
       </div>
-      <img class="aspect-square object-cover" src="<?= site_url('../upload/' . $detail_post->filename); ?>" alt="<?= $detail_post->caption ?>">
+      <img class="aspect-square object-cover" src="<?= site_url('upload/' . $detail_post->filename); ?>" alt="<?= $detail_post->caption ?>">
     </section>
     <h1 class="font-display text-6xl text-primary-dark mb-2" style="line-height: 1.1;"><?= $detail_post->caption . " ." ?></h1>
     <p class="mb-6"><?= $detail_post->description ?></p>

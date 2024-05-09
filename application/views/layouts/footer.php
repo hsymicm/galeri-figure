@@ -7,7 +7,7 @@
     <h2 class="font-display text-background text-6xl">
       Galeri<br>Figure .
     </h2>
-    <p class="mt-3 text-background text-sm max-w-xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    <p class="mt-3 text-background text-sm max-w-xl">Galeri Figure merupakan website CRUD multimedia yang memberikan informasi action figure melalui gambar, dibuat menggunakan CodeIgniter 3 dan TailwindCSS.</p>
     <section class="mt-12 w-full flex items-center justify-between gap-4 text-xs font-light text-background">
       <p>Copyright © 2024 - Galeri Figure</p>
       <p class="text-right">Dibuat oleh Muhammad Fadil Hisyam dan Sulthan Elza</p>

@@ -8,8 +8,8 @@
   <title>
     <?= isset($title) ? $title : "Galeri Figure"; ?>
   </title>
-  <link href="<?= site_url("../asset/css/font.css") ?>" rel="stylesheet">
-  <link href="<?= site_url("../asset/css/output.css") ?>" rel="stylesheet">
+  <link href="<?= site_url("./asset/css/font.css") ?>" rel="stylesheet">
+  <link href="<?= site_url("./asset/css/output.css") ?>" rel="stylesheet">
 </head>
 
 <body class="w-full relative bg-primary-light px-[14px]">

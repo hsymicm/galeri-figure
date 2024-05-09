@@ -11,7 +11,7 @@
         <div class="bg-background aspect-square h-[14px]"></div>
         <div class="bg-background aspect-square h-[14px]"></div>
       </div>
-      <img class="aspect-square object-cover" src="<?= site_url('../upload/' . $post['filename']); ?>" alt="<?= $post['caption'] ?>">
+      <img class="aspect-square object-cover" src="<?= site_url('upload/' . $post['filename']); ?>" alt="<?= $post['caption'] ?>">
     </section>
     <section class="mt-[14px] flex flex-col">
       <h2 class="font-display text-[28px] text-center mb-[6px]" style="line-height: 1.1;"><?= $post['caption'] ?></h2>
