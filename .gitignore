@@ -17,6 +17,10 @@ user_guide_src/cilexer/dist/*
 user_guide_src/cilexer/pycilexer.egg-info/*
 /vendor/
 
+# Node Dev Dependencies
+node_modules
+package-lock.json
+
 # IDE Files
 #-------------------------
 /nbproject/
