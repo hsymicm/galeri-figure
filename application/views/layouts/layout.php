@@ -12,7 +12,7 @@
   <link href="<?= site_url("../asset/css/output.css") ?>" rel="stylesheet">
 </head>
 
-<body class="w-full relative bg-primary-light">
+<body class="w-full relative bg-primary-light px-[14px]">
   <div class="sticky z-10 pt-[14px] bg-primary-light top-0 w-full">
     <div class="mx-auto mb-[28px] max-w-3xl flex flex-col items-center">
       <div style="width: calc(100% - 28px);" class="bg-background h-[14px]"></div>

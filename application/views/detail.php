@@ -15,18 +15,18 @@
       <img class="aspect-square object-cover" src="<?= site_url('../upload/' . $detail_post->filename); ?>" alt="<?= $detail_post->caption ?>">
     </section>
     <h1 class="font-display text-6xl text-primary-dark mb-2" style="line-height: 1.1;"><?= $detail_post->caption . " ." ?></h1>
-    <p class="mb-4"><?= $detail_post->description ?></p>
-    <section class="mb-2 grid grid-cols-2 w-full">
+    <p class="mb-6"><?= $detail_post->description ?></p>
+    <section class="mb-2 grid grid-cols-1 sm:grid-cols-2 w-full gap-4">
       <div>
         <h3 class="font-display text-xl mb-2 px-2 py-1 w-fit bg-secondary text-background">Merek .</h3>
-        <p><?= $detail_post->brand ?></p>
+        <p class="border-l-4 border-secondary py-1 pl-2"><?= $detail_post->brand ?></p>
       </div>
       <div>
         <h3 class="font-display text-xl mb-2 px-2 py-1 w-fit bg-secondary text-background">Tanggal Rilis .</h3>
-        <p><?= date_format(date_create($detail_post->release_date),"d F Y") ?></p>
+        <p class="border-l-4 border-secondary py-1 pl-2"><?= date_format(date_create($detail_post->release_date),"d F Y") ?></p>
       </div>
     </section>
-    <section class="flex justify-between w-full mt-[28px]">
+    <section class="flex justify-between w-full mt-[42px]">
       <?php 
       $data['label'] = 'Edit';
       $data['route'] = './post/edit/' . $detail_post->id;

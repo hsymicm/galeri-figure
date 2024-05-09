@@ -8,9 +8,9 @@
       Galeri<br>Figure .
     </h2>
     <p class="mt-3 text-background text-sm max-w-xl">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-    <section class="mt-12 w-full flex items-center justify-between text-xs font-light text-background">
+    <section class="mt-12 w-full flex items-center justify-between gap-4 text-xs font-light text-background">
       <p>Copyright © 2024 - Galeri Figure</p>
-      <p>Dibuat oleh Muhammad Fadil Hisyam dan Sulthan Elza</p>
+      <p class="text-right">Dibuat oleh Muhammad Fadil Hisyam dan Sulthan Elza</p>
     </section>
   </footer>
   <div style="width: calc(100% - 28px);" class="relative bg-primary-dark h-[14px] before:absolute before:-bottom-[14px] before:h-[14px] before:w-full before:bg-secondary"></div>

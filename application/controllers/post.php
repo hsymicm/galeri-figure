@@ -19,8 +19,8 @@ class post extends CI_Controller
       $this->load->view('layouts/footer');
     } else {
       $data['detail_post'] = $this->model->read($id);
-      $data['header'] = "Detail Item .";
-      $data['title'] = "Detail Item | Galeri Figure";
+      $data['header'] = "Detail Figure .";
+      $data['title'] = $data['detail_post']->caption . " | Galeri Figure";
       $this->load->view('layouts/layout', $data);
       $this->load->view('detail', $data);
       $this->load->view('layouts/footer');
@@ -38,8 +38,8 @@ class post extends CI_Controller
     $this->form_validation->set_rules('release_date', 'Release Date', 'required');
 
     if ($this->form_validation->run() == FALSE) {
-      $data['header'] = "Tambah Item .";
-      $data['title'] = "Tambah Item | Galeri Figure";
+      $data['header'] = "Tambah Figure .";
+      $data['title'] = "Tambah Figure | Galeri Figure";
       $this->load->view('layouts/layout', $data);
       $this->load->view('create');
       $this->load->view('layouts/footer');
@@ -48,7 +48,7 @@ class post extends CI_Controller
 
       $config['upload_path'] = 'upload/';
       $config['allowed_types'] = 'jpeg|jpg|png';
-      $config['max_size'] = '100000';
+      $config['max_size'] = '3000000';
       $config['file_ext_tolower'] = TRUE;
       $config['filename'] = str_replace('.', '_', $id);
 
@@ -77,10 +77,10 @@ class post extends CI_Controller
     $this->form_validation->set_rules('release_date', 'Release Date', 'required');
 
     if ($this->form_validation->run() == FALSE) {
-      $data['header'] = "Edit Item .";
-      $data['title'] = "Edit Item | Galeri Figure";
       $data['detail_post'] = $this->model->read($id);
-      $this->load->view('layouts/layout');
+      $data['header'] = "Edit Figure .";
+      $data['title'] = "Edit Figure | Galeri Figure";
+      $this->load->view('layouts/layout', $data);
       $this->load->view('edit', $data);
       $this->load->view('layouts/footer');
     } else {
@@ -89,7 +89,7 @@ class post extends CI_Controller
 
         $config['upload_path'] = './upload/post';
         $config['allowed_types'] = 'jpeg|jpg|png';
-        $config['max_size'] = '100000';
+        $config['max_size'] = '3000000';
         $config['file_ext_tolower'] = TRUE;
         $config['overwrite'] = TRUE;
         $config['filename'] = $post->filename;
