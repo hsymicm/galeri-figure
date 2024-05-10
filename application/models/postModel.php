@@ -24,7 +24,7 @@ class postModel extends CI_Model
     $this->db->insert('post', $data);
   }
 
-  public function update($id)
+  public function update($id, $filename = NULL)
   {
     $data = array(
       'caption' => $this->input->post('caption', TRUE),
@@ -32,6 +32,11 @@ class postModel extends CI_Model
       'brand' => $this->input->post('brand', TRUE),
       'release_date' => $this->input->post('release_date', TRUE)
     );
+
+    if (isset($filename)) {
+      $data['filename'] = $filename;
+    }
+
     $this->db->where('id', $id);
     $this->db->update('post', $data);
   }

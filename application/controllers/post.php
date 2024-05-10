@@ -48,9 +48,9 @@ class post extends CI_Controller
 
       $config['upload_path'] = 'upload/';
       $config['allowed_types'] = 'jpeg|jpg|png';
-      $config['max_size'] = '3000000';
+      $config['max_size'] = '10000';
       $config['file_ext_tolower'] = TRUE;
-      $config['filename'] = str_replace('.', '_', $id);
+      $config['file_name'] = str_replace('.', '_', $id);
 
       $this->load->library('upload', $config);
 
@@ -68,6 +68,8 @@ class post extends CI_Controller
 
   public function edit($id)
   {
+    // print_r($this->input->post('file'));
+
     $this->load->helper('form');
     $this->load->library('form_validation');
 
@@ -84,23 +86,27 @@ class post extends CI_Controller
       $this->load->view('edit', $data);
       $this->load->view('layouts/footer');
     } else {
-      if ($this->input->post('file')) {
+      if (!empty($_FILES['file'])) {
+        $new_id = uniqid('item', TRUE);
         $post = $this->model->read($id);
 
-        $config['upload_path'] = './upload/post';
+        $config['upload_path'] = 'upload/';
         $config['allowed_types'] = 'jpeg|jpg|png';
-        $config['max_size'] = '3000000';
+        $config['max_size'] = '10000';
         $config['file_ext_tolower'] = TRUE;
-        $config['overwrite'] = TRUE;
-        $config['filename'] = $post->filename;
+        $config['file_name'] = str_replace('.', '_', $new_id);
 
         $this->load->library('upload', $config);
 
-        if (!$this->upload->do_upload('image')) {
+        if (!$this->upload->do_upload('file')) {
           $this->session->set_flashdata('error', $this->upload->display_errors());
-          redirect('post/update' . $id);
+          redirect('post/edit/' . $id);
         } else {
-          $this->model->update($id);
+          unlink('upload/'. $post->filename);
+
+          $filename = $this->upload->data('file_name');
+          $this->model->update($id, $filename);
+
           redirect();
         }
       } else {
@@ -110,16 +116,28 @@ class post extends CI_Controller
     }
   }
 
-  public function delete($id)
+  public function delete($id = FALSE)
   {
-    $this->db->where('id', $id);
-    $this->db->delete('post');
+    $post = $this->model->read($id);
+    $this->model->delete($id);
+
+    unlink('upload/'. $post->filename);
     redirect();
   }
 
   public function deleteAll()
   {
-    $this->db->empty_table('post');
+    $this->model->deleteAll();
+    $directory = 'upload/post/';
+    $files = glob($directory. '*');
+
+    foreach ($files as $file)
+    {
+      if (is_file($file)) {
+        unlink($file);
+      }
+    }
+
     redirect();
   }
 }
