@@ -128,7 +128,7 @@ class post extends CI_Controller
   public function deleteAll()
   {
     $this->model->deleteAll();
-    $directory = 'upload/post/';
+    $directory = 'upload/';
     $files = glob($directory. '*');
 
     foreach ($files as $file)
